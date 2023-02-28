@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <title>Test Task</title>
+  </head>
+  <body>
+    <div class="promo__container">
+      <div class="promo__wrapper">
+        <div class="promo__content">
+          <h1 class="promo__title">Play any audio sources directly in the browser!</h1>
+          <p class="promo__description "> Without any restrictions for free</p>
+        </div>
+        <div class="privacy">
+          <span>
+            By uploading the audio file, you agree to our
+          </span>
+          <a>
+            Terms of Service.
+          </a>
+        </div>
+      </div>
+      <div id="root" class="player__wrapper"></div>
+      <div class="promo__wrapper--mobile">
+        <p class="promo__description--mobile"> Without any restrictions for free</p>
+        <div class="privacy--mobile">
+          <span>
+            By uploading the audio file, you agree to our
+          </span>
+          <a>
+            Terms of Service.
+          </a>
+        </div>
+      </div>
+    </div>
+    <footer class="howto__container">
+      <div class="howto__wrapper">
+        <div class="howto__description-content">
+          <p class="howto__title">
+            How It Works
+          </p>
+          <p class="howto__description"> 
+            Lorem Ipsum is a "fish" text often used in print and web design. Lorem Ipsum has been the standard "fish" for Latin texts since the early 16th century. At that time, an unnamed printer created a large collection of font sizes and shapes, using Lorem Ipsum for print samples.
+          </p>
+        </div>
+        <div class="howto__illustration-content">
+          <div class="howto__illustration"></div>
+        </div>
+      </div>
+      <div class="requirements__wrapper">
+        <p class="requirements__title">Technical requirements</p>
+        <div class="tabs">
+          <button class="tab-link tab-link--active" onclick="openTab(event, 'own-server')">Own server</button>
+          <button class="tab-link" onclick="openTab(event, 'amazon-instance')">Amazon Instance</button>
+        </div>
+        <div class="tab tab--active" id="own-server">
+          <table>
+            <tr>
+              <td class="parameter">
+                OS + apps
+              </td>
+              <td class="value">
+                Unix/OSX + docker + nvidia-docker
+              </td>
+            </tr>
+            <tr>
+              <td class="parameter">
+                CPU
+              </td>
+              <td class="value">
+                4 cores or more (e.g. intel core i5)
+              </td>
+            </tr>
+            <tr>
+              <td class="parameter">
+                Memory
+              </td>
+              <td class="value">
+                16 GB RAM
+              </td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <td class="parameter">
+                Free space
+              </td>
+              <td class="value">
+                100 GB of free space
+              </td>
+            </tr>
+            <tr>
+              <td class="parameter">
+                Graphics hardware
+              </td>
+              <td class="value">
+                GPU: NVidia only 2Gb+
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="tab" id="amazon-instance">
+          <table>
+            <tr>
+              <td class="parameter">
+                Instance
+              </td>
+              <td class="value">
+                g4dn.xlarge
+              </td>
+            </tr>
+            <tr>
+              <td class="parameter">
+                GPU
+              </td>
+              <td class="value">
+                1
+              </td>
+            </tr>
+            <tr>
+              <td class="parameter">
+                vCPUs
+              </td>
+              <td class="value">
+                4
+              </td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <td class="parameter">
+                Memory
+              </td>
+              <td class="value">
+                16 GB RAM
+              </td>
+            </tr>
+            <tr>
+              <td class="parameter">
+                Storage
+              </td>
+              <td class="value">
+                125 GB
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>  
+    </footer>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+  </body>
+  <script type="text/javascript">
+    function openTab (event, id) {
+      let tabs = document.getElementsByClassName('tab')
+      for (let i = 0; i < tabs.length; i++) {
+        tabs[i].className = tabs[i].className.replace(" tab--active", "")
+      }
+      let tablinks = document.getElementsByClassName('tab-link')
+      for (let i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" tab-link--active", "")
+      }
+      event.currentTarget.className += " tab-link--active";
+      let tab = document.getElementById(id)
+      tab.className += ' tab--active'
+    }
+
+  </script>
+  <script src="../src/index.js" type="text/JSX"></script>
+</html>

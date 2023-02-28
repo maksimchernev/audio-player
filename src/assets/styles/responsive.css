@@ -1,0 +1,165 @@
+@media screen and (max-width: 320px) {
+    /* ___________________ */
+    /* MAIN CONTENT MOBILE STYLES */
+    /* ___________________ */
+
+    body {
+        border: none;
+    }
+
+    /* 1.PROMO */
+
+    .promo__container {
+        padding: 20px 12px;
+        gap: 40px;
+    }
+    .promo__wrapper {
+        width: 100%;
+        height: fit-content;
+    }
+    .promo__container {
+        flex-direction: column;
+    }
+    .promo__title {
+        font-size: 36px;
+        line-height: 110%;
+        letter-spacing: -0.4px;
+    }
+    .promo__wrapper--mobile {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .promo__description--mobile {
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 24px;
+        line-height: 32px;
+        letter-spacing: -0.4px;
+        color: #1B191C;
+    }
+    .privacy--mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0px;
+        gap: 4px;
+    }
+    .privacy--mobile span {
+        font-style: normal;
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: -0.3px;
+        color: #1B191C;
+    } 
+    .privacy--mobile a {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: -0.3px;
+        color: #1B191C;
+    }
+    .promo__description, .privacy {
+        display: none;
+        max-height: 0px;
+    }
+    .player__wrapper {
+        width: 100%;
+    }
+
+    /* 2.FORM */
+
+    .form {
+        width: 100%;
+    }
+    .form-label {
+        font-size: 24px;
+        line-height: 32px;
+        letter-spacing: -0.4px;
+        color: #1B191C;
+    }
+    .form__input {
+        height: 64px;
+        width: calc(100% - 64px);
+        font-size: 24px;
+        line-height: 32px;
+        padding: 16px;
+        box-sizing: border-box;
+    }
+    .form__button {
+        width: 64px;
+        height: 64px;
+    }
+
+    /* 3.PLAYER */
+
+    .player__content {
+        width: 100%;
+    }
+    .player__counter-volume-content {
+        gap: 0;
+    }
+    .player__volume {
+        width: 191px;
+    }
+
+    /* 4.HOWTO */
+
+    .howto__container {
+        padding: 40px 12px;
+    }
+    .howto__wrapper {
+        flex-direction: column;
+        gap: 36px;
+    }
+    .howto__description-content {
+        width: 100%;
+    }
+    .howto__title {
+        font-size: 36px;
+        line-height: 110%;
+    }
+    .howto__illustration-content {
+        width: 100%;
+    }
+    .howto__illustration {
+        height: 193px;
+    }
+
+    /* 5.TABS */
+
+    .tabs {
+        gap: 16px;
+    }
+    .tab-link {
+        display: flex;
+        align-items: flex-end;
+        width: 50%;
+        text-align: left;
+    }
+    .tab {
+        flex-direction: column;
+        gap: 0;
+    }
+    table {
+        width: 100%;
+    }
+    tr {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px 0;
+    }
+    .value, .parameter {
+        width: 100%;
+        padding: 0px;
+    }
+}
+@media screen and (min-width: 321px) {
+    .promo__wrapper--mobile, .promo__description--mobile, .privacy--mobile {
+        display: none;
+    }
+}
