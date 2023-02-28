@@ -162,7 +162,7 @@ body {
     height: 96px;
     cursor: pointer;
     border: none;
-    background: url('/src/assets/images/submit_arrow.svg') no-repeat 50% , var(--yellow);
+    background: url('./submit_arrow.svg') no-repeat 50% , var(--yellow);
 }
 .form__error {
     color: var(--yellow-darker);
@@ -252,10 +252,10 @@ body {
     height: 40px;
 }
 .player__play-button {
-    background: url('../images/play_icon.svg') no-repeat 50%;
+    background: url('./play_icon.svg') no-repeat 50%;
 }
 .player__pause-button {
-    background: url('../images/pause_icon.svg') no-repeat 50%;
+    background: url('./pause_icon.svg') no-repeat 50%;
 }
 
 
@@ -427,7 +427,7 @@ input[type=range] {
     width: 50%;
 }
 .howto__illustration {
-    background-image: url('/src/assets/images/Illustration.png');
+    background-image: url('./Illustration.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
