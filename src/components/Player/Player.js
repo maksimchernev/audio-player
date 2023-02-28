@@ -8,7 +8,7 @@ export const Player = ({audioUrl, back}) => {
     const [audioDuration, setAudioDuration] = useState(0);
     const [currentTime, setCurrentTime] = useState(0);
     const [audioBuffer, setAudioBuffer] = useState(false)
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
     useEffect(()=> {
         console.log('audioDuration', audioDuration)
     }, [audioDuration])
@@ -16,9 +16,7 @@ export const Player = ({audioUrl, back}) => {
         console.log('currentTime', currentTime)
     }, [currentTime])
     useEffect(() => {
-        setLoading(true)
         if (!audioUrl) {
-            setLoading(false)
             return;
         }
         const audio = new Audio()
@@ -26,6 +24,8 @@ export const Player = ({audioUrl, back}) => {
         audio.src = audioUrl
         audio.addEventListener('loadedmetadata', handleLoadedMetadata);
         audio.addEventListener('timeupdate', handleTimeUpdate);
+        audio.addEventListener('waiting', handleWaiting);
+        audio.addEventListener('canplay', handleCanPlay);
 
         const context = new AudioContext();
         const source = context.createMediaElementSource(audio);
@@ -34,10 +34,11 @@ export const Player = ({audioUrl, back}) => {
         gainNode.connect(context.destination);
 
         setAudioBuffer(audio)
-        setLoading(false)
         return () => {
             audio.removeEventListener('loadedmetadata', handleLoadedMetadata);
             audio.removeEventListener('timeupdate', handleTimeUpdate);
+            audio.removeEventListener('waiting', handleWaiting);
+            audio.removeEventListener('canplay', handleCanPlay);
             context.close();
         };
       }, [audioUrl]);
@@ -62,12 +63,17 @@ export const Player = ({audioUrl, back}) => {
 
     const handleTimeUpdate = (event) => {
         setCurrentTime(event.target.currentTime);
-      };
+    };
     
     const handleLoadedMetadata = (event) => {
-    setAudioDuration(event.target.duration);
+        setAudioDuration(event.target.duration);
     };
-
+    const handleWaiting = () => {
+        setLoading(true)
+    }
+    const handleCanPlay = () => {
+        setLoading(false)
+    }
     const handleCurrentTimeChange = (event) => {
         audioBuffer.currentTime = event.currentTarget.value
         setCurrentTime(event.currentTarget.value)
@@ -89,6 +95,7 @@ export const Player = ({audioUrl, back}) => {
                 ← Back
             </button>
             <div className="player__box">
+            {loading && <div className="loader"/> }
                 <button className={`player__play-pause-button player__play-button 
                     ${isPlaying ? 'player__pause-button' : 'player__play-button'}`} 
                     onClick={handlePlayPause}
